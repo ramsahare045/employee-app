@@ -18,10 +18,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore
-      run: dotnet restore EmployeeApp/backend/backend.csproj
+      run: dotnet restore EmployeeApp/EmployeeApp.sln
 
     - name: Build
-      run: dotnet build EmployeeApp/backend/backend.csproj --no-restore
+      run: dotnet build EmployeeApp/EmployeeApp.sln --no-restore
 
   build-frontend:
     runs-on: ubuntu-latest
