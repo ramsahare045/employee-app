@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Project\\Test\\DotNet\\EmployeeApp\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|e:\\project\\test\\dotnet\\employeeapp\\employeeapp\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|solutionrelative:employeeapp\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|e:\\project\\test\\dotnet\\employeeapp\\employeeapp\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|solutionrelative:employeeapp\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|e:\\project\\test\\dotnet\\employeeapp\\employeeapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|solutionrelative:employeeapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|e:\\project\\test\\dotnet\\employeeapp\\employeeapp\\employeeapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|solutionrelative:employeeapp\\employeeapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|e:\\project\\test\\dotnet\\employeeapp\\employeeapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{670420BB-45FA-4EF4-A4D1-B2F8DB0859B7}|EmployeeApp\\EmployeeApp.csproj|solutionrelative:employeeapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,76 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmployeeController.cs",
-              "DocumentMoniker": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\Controllers\\EmployeeController.cs",
-              "RelativeDocumentMoniker": "EmployeeApp\\Controllers\\EmployeeController.cs",
-              "ToolTip": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\Controllers\\EmployeeController.cs",
-              "RelativeToolTip": "EmployeeApp\\Controllers\\EmployeeController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-13T17:30:30.808Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "EmployeeApp\\Models\\Employee.cs",
-              "ToolTip": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\Models\\Employee.cs",
-              "RelativeToolTip": "EmployeeApp\\Models\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-13T17:28:36.738Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmployeeApp",
-              "DocumentMoniker": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\EmployeeApp.csproj",
-              "RelativeDocumentMoniker": "EmployeeApp\\EmployeeApp.csproj",
-              "ToolTip": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\EmployeeApp.csproj",
-              "RelativeToolTip": "EmployeeApp\\EmployeeApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-13T17:28:13.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\Program.cs",
-              "RelativeDocumentMoniker": "EmployeeApp\\Program.cs",
-              "ToolTip": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\Program.cs",
-              "RelativeToolTip": "EmployeeApp\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-13T17:16:59.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\appsettings.json",
-              "RelativeDocumentMoniker": "EmployeeApp\\appsettings.json",
-              "ToolTip": "E:\\Project\\Test\\DotNet\\EmployeeApp\\EmployeeApp\\appsettings.json",
-              "RelativeToolTip": "EmployeeApp\\appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAwwBAAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-13T17:16:29.253Z",
-              "EditorCaption": ""
             }
           ]
         }
