@@ -10,36 +10,69 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
 
-    - name: Restore
-      run: dotnet restore
+      - name: Restore
+        run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
 
   build-frontend:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: '24'
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'   # Use stable LTS instead of 24
 
-    - name: Install Dependencies
-      run: |
-        cd frontend
-        npm install
+      - name: Install Dependencies
+        working-directory: ./frontend
+        run: npm install
 
-    - name: Build Angular
-      run: |
-        cd frontend
-        npm run build -- --configuration production
+      - name: Build Angular
+        working-directory: ./frontend
+        run: npm run build -- --configuration production
+
+
+  deploy:
+    needs: [build-backend, build-frontend]
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish Backend
+        run: dotnet publish -c Release -o publish
+
+      - name: Stop IIS Website
+        shell: powershell
+        run: |
+          Import-Module WebAdministration
+          Stop-Website -Name "MyApp"
+
+      - name: Deploy Files
+        shell: powershell
+        run: |
+          Remove-Item "C:\inetpub\wwwroot\MyApp\*" -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path "publish\*" -Destination "C:\inetpub\wwwroot\MyApp" -Recurse
+
+      - name: Start IIS Website
+        shell: powershell
+        run: |
+          Import-Module WebAdministration
+          Start-Website -Name "MyApp"
