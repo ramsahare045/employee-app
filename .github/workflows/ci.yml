@@ -2,18 +2,17 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
 
   build-backend:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
@@ -21,19 +20,24 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet publish -c Release -o backend_publish
+
+      - name: Upload backend artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend
+          path: backend_publish
 
 
   build-frontend:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'   # Use stable LTS instead of 24
+          node-version: '20'
 
       - name: Install Dependencies
         working-directory: ./frontend
@@ -43,35 +47,49 @@ jobs:
         working-directory: ./frontend
         run: npm run build -- --configuration production
 
+      - name: Upload frontend artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend
+          path: frontend/dist
+
 
   deploy:
     needs: [build-backend, build-frontend]
-    runs-on: windows-latest
+    runs-on: self-hosted   # MUST be IIS server
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+      - name: Download backend
+        uses: actions/download-artifact@v4
         with:
-          dotnet-version: '8.0.x'
+          name: backend
+          path: backend
 
-      - name: Publish Backend
-        run: dotnet publish -c Release -o publish
+      - name: Download frontend
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend
+          path: frontend
 
-      - name: Stop IIS Website
+      - name: Stop IIS
         shell: powershell
         run: |
           Import-Module WebAdministration
           Stop-Website -Name "MyApp"
 
-      - name: Deploy Files
+      - name: Deploy Backend
         shell: powershell
         run: |
-          Remove-Item "C:\inetpub\wwwroot\MyApp\*" -Recurse -Force -ErrorAction SilentlyContinue
-          Copy-Item -Path "publish\*" -Destination "C:\inetpub\wwwroot\MyApp" -Recurse
+          Remove-Item "C:\inetpub\wwwroot\MyApp\api\*" -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item "backend\*" "C:\inetpub\wwwroot\MyApp\api" -Recurse
 
-      - name: Start IIS Website
+      - name: Deploy Frontend
+        shell: powershell
+        run: |
+          Remove-Item "C:\inetpub\wwwroot\MyApp\ui\*" -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item "frontend\*" "C:\inetpub\wwwroot\MyApp\ui" -Recurse
+
+      - name: Start IIS
         shell: powershell
         run: |
           Import-Module WebAdministration
